@@ -30,8 +30,16 @@ If you want to perform a segue manually, you should use `performSegueWithIdentif
 
     performSegueWithIdentifier(.ShowMagic, sender: nil)
 
-*/
+## Summary
 
+1. _Storyboard_
+2. [API](API)
+3. [Router](Router)
+4. [Credential](Credential)
+5. [Error](Error)
+6. [Safe arrays](Array)
+
+*/
 import UIKit
 
 class TestViewController: UIViewController, SegueHandlerType

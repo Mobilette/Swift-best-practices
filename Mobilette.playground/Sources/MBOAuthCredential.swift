@@ -74,7 +74,7 @@ public class MBOAuthCredential: NSObject, NSCoding
             let _ = self.accessToken,
             let _ = self.refreshToken
             else {
-                throw MBOAuthCredentialError.BadCredentials("")
+                throw MBOAuthCredentialError.BadCredentials
         }
         
         let query = [
@@ -168,7 +168,7 @@ public class MBOAuthCredential: NSObject, NSCoding
 public enum MBOAuthCredentialError: MBError
 {
     case Unknown(Int)
-    case BadCredentials(String)
+    case BadCredentials
     case BadResults()
     case UserIdentifierMissing
     case CanNotUnarchiveObject
@@ -226,43 +226,6 @@ public enum MBOAuthCredentialError: MBError
             return ""
         case .CanNotCopy:
             return ""
-        }
-    }
-}
-
-public enum MBUserDefaultsError: MBError
-{
-    case Unknown(Int)
-    case CanNotSynchronizeUserDefault
-    
-    public var code: Int {
-        switch self {
-        case .Unknown:
-            return 2000
-        case .CanNotSynchronizeUserDefault:
-            return 2001
-        }
-    }
-    
-    public var domain: String {
-        return "NSUserDefaultsDomain"
-    }
-    
-    public var description: String {
-        switch self {
-        case .Unknown:
-            return "Unknown error."
-        case .CanNotSynchronizeUserDefault:
-            return "Can not synchronize user defaults."
-        }
-    }
-    
-    public var reason: String {
-        switch self {
-        case .Unknown(let status):
-            return "Security function throw error with status : \(status)."
-        case .CanNotSynchronizeUserDefault:
-            return "."
         }
     }
 }
